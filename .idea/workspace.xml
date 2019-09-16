@@ -16,8 +16,13 @@
       <file leaf-file-name="woocommerce-intense-turkiye-il-ilce-eklentisi.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/woocommerce-intense-turkiye-il-ilce-eklentisi.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="363">
               <caret line="38" column="14401" selection-start-line="38" selection-start-column="14401" selection-end-line="38" selection-end-column="14401" />
+=======
+            <state relative-caret-position="98">
+              <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -111,7 +116,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="3916000" />
+=======
+    <option name="totallyTimeSpent" value="3907000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="30" y="40" width="1400" height="781" extended-state="0" />
@@ -218,6 +227,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/woocommerce-intense-turkiye-il-ilce-eklentisi.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
@@ -288,5 +298,7 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Stashed changes
   </component>
 </project>
