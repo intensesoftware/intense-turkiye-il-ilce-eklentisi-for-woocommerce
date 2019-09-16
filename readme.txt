@@ -1,4 +1,4 @@
-=== WooCommerce Intense İl İlçe Eklentisi ===
+=== Intense Türkiye İl İlçe Eklentisi WooCommerce için ===
 Contributors: intenseyazilim
 Tags: woocommerce, turkiye, turkey, turkish, intense, kargo
 Requires at least: 5
