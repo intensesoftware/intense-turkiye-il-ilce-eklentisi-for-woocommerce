@@ -10,6 +10,10 @@ Author URI: http://intense.com.tr
 License: GPL2
 */
 
+if ( ! defined( 'ABSPATH' ) ){
+    exit;
+}
+
 
 add_filter('woocommerce_checkout_fields', 'intense_ilce_override');
 
@@ -38,7 +42,7 @@ function intense_ilce_override($fields){
  *
  */
 add_action('wp_footer', function(){
-    
+
     if(!is_checkout())
         return;
 
