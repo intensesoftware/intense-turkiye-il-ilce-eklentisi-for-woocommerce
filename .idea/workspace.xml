@@ -16,8 +16,8 @@
       <file leaf-file-name="woocommerce-intense-turkiye-il-ilce-eklentisi.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/woocommerce-intense-turkiye-il-ilce-eklentisi.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+            <state relative-caret-position="163">
+              <caret line="64" column="77" selection-start-line="64" selection-start-column="77" selection-end-line="64" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -30,6 +30,11 @@
         <option value="WordPress Main Plugin File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>data</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -106,7 +111,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2982000" />
+    <option name="totallyTimeSpent" value="3893000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="30" y="40" width="1400" height="781" extended-state="0" />
@@ -145,8 +150,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/woocommerce-intense-turkiye-il-ilce-eklentisi.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+        <state relative-caret-position="616">
+          <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/woocommerce-intense-turkiye-il-ilce-eklentisi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="64" column="77" selection-start-line="64" selection-start-column="77" selection-end-line="64" selection-end-column="77" />
         </state>
       </provider>
     </entry>

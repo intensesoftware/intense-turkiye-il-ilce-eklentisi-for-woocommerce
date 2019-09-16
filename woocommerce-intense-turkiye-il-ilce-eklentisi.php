@@ -47,69 +47,6 @@ add_action('wp_footer', function(){
 });
 
 
-add_action('admin_init', 'il_ve_ilce_listeleri_hazirla');
-
-/**
- * $il_adi = 'Çankırı';
- */
-function il_ve_ilce_listeleri_hazirla(){
-
-
-    if(!isset($_GET['ilce-listesi-hazirla']))
-        return;
-
-    $countries_obj = new WC_Countries();
-
-    function pre_up($str){
-        $str = str_replace('i', 'İ', $str);
-        $str = str_replace('ı', 'I', $str);
-        return $str;
-    }
-
-    function buyuk_harf_yap($il){
-
-        return mb_strtoupper(pre_up($il), 'UTF-8');
-
-    }
-
-
-    $TR_sehirler = array_map('buyuk_harf_yap', $countries_obj->get_states()['TR']);
-
-    $ilce_listesi = array();
-
-    function return_ilce($n){
-
-        return $n->ilce;
-
-    }
-
-    $TR_sehirler = array_replace($TR_sehirler, array(
-        'TR03'=>'AFYONKARAHİSAR',
-    )
-    );
-
-    foreach($TR_sehirler as $WC_il_kodu=>$il_adi){
-
-        global $wpdb;
-
-
-        $query = $wpdb->prepare('SELECT DISTINCT ilce FROM wp_intense_tr_pk WHERE il=%s', $il_adi);
-
-        $ilceler = array_map('return_ilce',$wpdb->get_results($query));
-
-        $ilce_listesi[$WC_il_kodu] = $ilceler;
-
-    }
-
-    echo json_encode($ilce_listesi);
-
-    exit;
-
-}
-
-
-
-
 
 add_action('wp_footer', 'ilcelerin_listelenmesi');
 
@@ -123,8 +60,23 @@ function ilcelerin_listelenmesi(){
 
             jQuery('#billing_state').on('change', function(){
 
-                var data = jQuery('.select2 option:selected').text();
+                // eski verileri temizle
+                jQuery('#billing_city').empty();
+                jQuery('#billing_city').append(new Option('Lütfen Seçiniz', 0));
+
                 let billing_il = jQuery('#billing_state').val();
+
+                jQuery.each(ilceler[billing_il], function(key,value){
+
+                    // yeni ilceleri ekle
+                    var opt = new Option(value, value);
+                    jQuery(opt).html(value);
+                    jQuery('#billing_city').append(opt);
+
+                });
+
+                jQuery('#billing_city').append(ilceler.TR01);
+
 
             });
 
