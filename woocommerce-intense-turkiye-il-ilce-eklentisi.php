@@ -15,8 +15,17 @@ add_filter('woocommerce_checkout_fields', 'intense_ilce_override');
 
 function intense_ilce_override($fields){
 
+    if(!is_checkout())
+        return;
+
     $fields['billing']['billing_city']['type'] = 'select';
+    $fields['billing']['billing_city']['priority'] = $fields['billing']['billing_state']['priority']+1;
     $fields['billing']['billing_city']['options'] = array('0'=>'Lütfen Seçiniz');
+
+
+    $fields['shipping']['shipping_city']['type'] = 'select';
+    $fields['shipping']['shipping_city']['priority'] = $fields['shipping']['shipping_state']['priority']+1;
+    $fields['shipping']['shipping_city']['options'] = array('0'=>'Lütfen Seçiniz');
 
     return $fields;
 
@@ -29,9 +38,13 @@ function intense_ilce_override($fields){
  *
  */
 add_action('wp_footer', function(){
-
+    
+    if(!is_checkout())
+        return;
 
     ?>
+
+
 
     <script>
 
@@ -50,6 +63,9 @@ add_action('wp_footer', function(){
 add_action('wp_footer', 'ilcelerin_listelenmesi');
 
 function ilcelerin_listelenmesi(){
+
+    if(!is_checkout())
+        return;
 
     ?>
 
@@ -75,6 +91,30 @@ function ilcelerin_listelenmesi(){
                 });
 
                 jQuery('#billing_city').append(ilceler.TR01);
+
+
+            });
+
+
+
+            jQuery('#shipping_state').on('change', function(){
+
+                // eski verileri temizle
+                jQuery('#shipping_city').empty();
+                jQuery('#shipping_city').append(new Option('Lütfen Seçiniz', 0));
+
+                let billing_il = jQuery('#shipping_state').val();
+
+                jQuery.each(ilceler[billing_il], function(key,value){
+
+                    // yeni ilceleri ekle
+                    var opt = new Option(value, value);
+                    jQuery(opt).html(value);
+                    jQuery('#shipping_city').append(opt);
+
+                });
+
+                jQuery('#shipping_city').append(ilceler.TR01);
 
 
             });
