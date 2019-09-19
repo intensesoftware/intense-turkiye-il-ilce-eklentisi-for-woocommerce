@@ -3,7 +3,7 @@
 /*
 Plugin Name: Intense Türkiye İl İlçe Eklentisi For WooCommerce
 Description: WooCommerce ödeme sayfası için Türkiye'de yer alan tüm il ve ilçelerin gösterilmesini sağlar.
-Version: 1.0.1
+Version: 1.0.2
 Author: Intense Yazılım
 Author URI: http://intense.com.tr
 License: GPL2
@@ -14,25 +14,41 @@ if ( ! defined( 'ABSPATH' ) ){
 }
 
 
-add_filter('woocommerce_checkout_fields', 'intense_ilce_override');
+add_filter('woocommerce_checkout_fields', 'intense_ilce_override', 10);
 
 function intense_ilce_override($fields){
 
     if(!is_checkout())
         return;
 
+
     $fields['billing']['billing_city']['type'] = 'select';
-    $fields['billing']['billing_city']['priority'] = $fields['billing']['billing_state']['priority']+1;
     $fields['billing']['billing_city']['options'] = array('0'=>'Lütfen Seçiniz');
 
 
     $fields['shipping']['shipping_city']['type'] = 'select';
-    $fields['shipping']['shipping_city']['priority'] = $fields['shipping']['shipping_state']['priority']+1;
     $fields['shipping']['shipping_city']['options'] = array('0'=>'Lütfen Seçiniz');
 
     return $fields;
 
 }
+
+
+/** Checkout fieldlerin sıralanması il -> ilçe -> adres **/
+add_filter('woocommerce_default_address_fields', 'intense_il_ilce_siralamasi');
+
+function intense_il_ilce_siralamasi($fields){
+
+    $address_order = $fields['address_1']['priority'];
+
+    $fields['city']['priority'] = $address_order-1;
+    $fields['state']['priority'] = $address_order-2;
+
+    return $fields;
+
+
+}
+
 
 
 /**
