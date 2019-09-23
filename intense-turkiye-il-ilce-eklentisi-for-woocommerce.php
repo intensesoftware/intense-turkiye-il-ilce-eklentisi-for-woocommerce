@@ -102,15 +102,15 @@ function ilcelerin_listelenmesi(){
 
                 let billing_il = jQuery('#billing_state').val();
 
-                jQuery.each(ilceler[billing_il], function(key,value){
+                jQuery.each(ilceler[billing_il], function(key,il){
 
                     // yeni ilceleri ekle
-                    var opt = new Option(value, value);
-                    jQuery('#billing_city').append(opt);
+                    jQuery('#billing_city').append(jQuery('<option>', {
+                        value: il,
+                        text: il
+                    }));
 
                 });
-
-                jQuery('#billing_city').append(ilceler.TR01);
 
 
             });
@@ -123,17 +123,18 @@ function ilcelerin_listelenmesi(){
                 jQuery('#shipping_city').empty();
                 jQuery('#shipping_city').append(new Option('Lütfen Seçiniz', ''));
 
-                let billing_il = jQuery('#shipping_state').val();
+                let shipping_il = jQuery('#shipping_state').val();
 
-                jQuery.each(ilceler[billing_il], function(key,value){
+                jQuery.each(ilceler[shipping_il], function(key,il){
 
                     // yeni ilceleri ekle
-                    var opt = new Option(value, value);
-                    jQuery('#shipping_city').append(opt);
+                    jQuery('#shipping_city').append(jQuery('<option>', {
+                        value: il,
+                        text: il
+                    }));
+
 
                 });
-
-                jQuery('#shipping_city').append(ilceler.TR01);
 
 
             });
