@@ -3,7 +3,7 @@
 /*
 Plugin Name: Intense Türkiye İl İlçe Eklentisi For WooCommerce
 Description: WooCommerce ödeme sayfası için Türkiye'de yer alan tüm il ve ilçelerin gösterilmesini sağlar.
-Version: 1.0.2
+Version: 1.0.3
 Author: Intense Yazılım
 Author URI: http://intense.com.tr
 License: GPL2
@@ -21,13 +21,15 @@ function intense_ilce_override($fields){
     if(!is_checkout())
         return;
 
-
+    $fields['billing']['billing_city']['priority'] = $fields['billing']['billing_address_1']['priority']-1;
+    $fields['billing']['billing_state']['priority'] = $fields['billing']['billing_address_1']['priority']-2;
     $fields['billing']['billing_city']['type'] = 'select';
-    $fields['billing']['billing_city']['options'] = array('0'=>'Lütfen Seçiniz');
+    $fields['billing']['billing_city']['options'] = array(''=>'Lütfen Seçiniz');
 
-
+    $fields['shipping']['shipping_city']['priority'] = $fields['shipping']['shipping_address_1']['priority']-1;
+    $fields['shipping']['shipping_state']['priority'] = $fields['shipping']['shipping_address_1']['priority']-2;
     $fields['shipping']['shipping_city']['type'] = 'select';
-    $fields['shipping']['shipping_city']['options'] = array('0'=>'Lütfen Seçiniz');
+    $fields['shipping']['shipping_city']['options'] = array(''=>'Lütfen Seçiniz');
 
     return $fields;
 
@@ -104,7 +106,6 @@ function ilcelerin_listelenmesi(){
 
                     // yeni ilceleri ekle
                     var opt = new Option(value, value);
-                    jQuery(opt).html(value);
                     jQuery('#billing_city').append(opt);
 
                 });
@@ -128,7 +129,6 @@ function ilcelerin_listelenmesi(){
 
                     // yeni ilceleri ekle
                     var opt = new Option(value, value);
-                    jQuery(opt).html(value);
                     jQuery('#shipping_city').append(opt);
 
                 });
