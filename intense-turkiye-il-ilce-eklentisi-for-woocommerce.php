@@ -3,7 +3,7 @@
 /*
 Plugin Name: Intense Türkiye İl İlçe Eklentisi For WooCommerce
 Description: WooCommerce ödeme sayfası için Türkiye'de yer alan tüm il ve ilçelerin gösterilmesini sağlar.
-Version: 1.0.5
+Version: 1.0.6
 Author: Intense Yazılım
 Author URI: http://intense.com.tr
 License: GPL2
@@ -21,9 +21,28 @@ function intense_ilce_override($fields){
     if(!is_checkout())
         return;
 
+    // fatura alanları öncelik sıralaması
+    $ulke_priority = $fields['billing']['billing_country']['priority'];
+    $fields['billing']['billing_city']['priority'] = $ulke_priority+2;
+    $fields['billing']['billing_state']['priority'] = $ulke_priority+1;
+    $fields['billing']['billing_address_1']['priority'] = $ulke_priority+3;
+    $fields['billing']['billing_address_2']['priority'] = $ulke_priority+4;
+    $fields['billing']['billing_postcode']['priority'] = $ulke_priority+5;
+
+
+
+    // alıcı adresi alanları öncelik sıralaması
+    $ulke_priority = $fields['shipping']['shipping_country']['priority'];
+    $fields['shipping']['shipping_city']['priority'] = $ulke_priority+2;
+    $fields['shipping']['shipping_state']['priority'] = $ulke_priority+1;
+    $fields['shipping']['shipping_address_1']['priority'] = $ulke_priority+3;
+    $fields['shipping']['shipping_address_2']['priority'] = $ulke_priority+4;
+    $fields['shipping']['shipping_postcode']['priority'] = $ulke_priority+5;
+
 
     $fields['billing']['billing_city']['type'] = 'select';
     $fields['billing']['billing_city']['options'] = array(''=>'Lütfen Seçiniz');
+
 
     $fields['shipping']['shipping_city']['type'] = 'select';
     $fields['shipping']['shipping_city']['options'] = array(''=>'Lütfen Seçiniz');
@@ -34,7 +53,7 @@ function intense_ilce_override($fields){
 
 
 /** Checkout fieldlerin sıralanması il -> ilçe -> adres **/
-add_filter('woocommerce_default_address_fields', 'intense_il_ilce_siralamasi');
+add_filter('woocommerce_default_address_fields', 'intense_il_ilce_siralamasi', 9999999999);
 
 function intense_il_ilce_siralamasi($fields){
 
@@ -42,6 +61,7 @@ function intense_il_ilce_siralamasi($fields){
 
     $fields['city']['priority'] = $address_order-1;
     $fields['state']['priority'] = $address_order-2;
+
 
     return $fields;
 
@@ -91,7 +111,9 @@ function ilcelerin_listelenmesi(){
 
         jQuery('document').ready(function(){
 
+
             jQuery('#billing_state').on('change', function(){
+
 
                 // eski verileri temizle
                 jQuery('#billing_city').empty();
