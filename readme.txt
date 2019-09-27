@@ -15,6 +15,9 @@ Eklentiyi etkinleştirdikten sonra, ödeme ekranında \'ilçe\' alanının dinam
 
 == Changelog ==
 
+= Version 1.0.7 - 27/09/2019 =
+Kullanıcının mevcut ilçe verisinin seçili gelmesi sağlandı.
+
 = Version 1.0.6 - 25/09/2019 =
 Ödeme alanları sıralaması ülke -> il -> ilçe -> adres1 -> adres2 -> postakodu olarak güncellendi.
 

@@ -3,7 +3,7 @@
 /*
 Plugin Name: Intense Türkiye İl İlçe Eklentisi For WooCommerce
 Description: WooCommerce ödeme sayfası için Türkiye'de yer alan tüm il ve ilçelerin gösterilmesini sağlar.
-Version: 1.0.6
+Version: 1.0.7
 Author: Intense Yazılım
 Author URI: http://intense.com.tr
 License: GPL2
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ){
 }
 
 
-add_filter('woocommerce_checkout_fields', 'intense_ilce_override', 10);
+add_filter('woocommerce_checkout_fields', 'intense_ilce_override', 9999);
 
 function intense_ilce_override($fields){
 
@@ -22,17 +22,15 @@ function intense_ilce_override($fields){
         return;
 
     // fatura alanları öncelik sıralaması
-    $ulke_priority = $fields['billing']['billing_country']['priority'];
+    $ulke_priority = intval($fields['billing']['billing_country']['priority']);
     $fields['billing']['billing_city']['priority'] = $ulke_priority+2;
     $fields['billing']['billing_state']['priority'] = $ulke_priority+1;
     $fields['billing']['billing_address_1']['priority'] = $ulke_priority+3;
     $fields['billing']['billing_address_2']['priority'] = $ulke_priority+4;
     $fields['billing']['billing_postcode']['priority'] = $ulke_priority+5;
 
-
-
     // alıcı adresi alanları öncelik sıralaması
-    $ulke_priority = $fields['shipping']['shipping_country']['priority'];
+    $ulke_priority = intval($fields['shipping']['shipping_country']['priority']);
     $fields['shipping']['shipping_city']['priority'] = $ulke_priority+2;
     $fields['shipping']['shipping_state']['priority'] = $ulke_priority+1;
     $fields['shipping']['shipping_address_1']['priority'] = $ulke_priority+3;
@@ -50,6 +48,23 @@ function intense_ilce_override($fields){
     return $fields;
 
 }
+
+
+add_action('woocommerce_before_checkout_billing_form', 'intense_il_ilce_checkout_bilgiler');
+
+function intense_il_ilce_checkout_bilgiler(){
+
+    ?>
+
+
+    <input type="hidden" id="intense_mevcut_billing_ilce" value="<?php echo WC()->customer->get_billing_city(); ?>" />
+    <input type="hidden" id="intense_mevcut_shipping_ilce" value="<?php echo WC()->customer->get_shipping_city(); ?>" />
+
+    <?php
+
+}
+
+
 
 
 /** Checkout fieldlerin sıralanması il -> ilçe -> adres **/
@@ -121,22 +136,23 @@ function ilcelerin_listelenmesi(){
 
                 let billing_il = jQuery('#billing_state').val();
 
-                jQuery.each(ilceler[billing_il], function(key,il){
+                let mevcut_shipping_ilce = jQuery('input#intense_mevcut_billing_ilce').val();
+
+                jQuery.each(ilceler[billing_il], function(key,ilce){
 
                     // yeni ilceleri ekle
-                    jQuery('#billing_city').append(jQuery('<option>', {
-                        value: il,
-                        text: il
-                    }));
+                    if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
+                        jQuery('#billing_city').append('<option selected value="'+ilce+'">'+ilce+'</option>');
+                    else
+                        jQuery('#billing_city').append('<option value="'+ilce+'">'+ilce+'</option>');
 
                 });
-
 
             });
 
 
-
             jQuery('#shipping_state').on('change', function(){
+
 
                 // eski verileri temizle
                 jQuery('#shipping_city').empty();
@@ -144,19 +160,20 @@ function ilcelerin_listelenmesi(){
 
                 let shipping_il = jQuery('#shipping_state').val();
 
-                jQuery.each(ilceler[shipping_il], function(key,il){
+                let mevcut_shipping_ilce = jQuery('input#intense_mevcut_shipping_ilce').val();
+
+                jQuery.each(ilceler[shipping_il], function(key,ilce){
 
                     // yeni ilceleri ekle
-                    jQuery('#shipping_city').append(jQuery('<option>', {
-                        value: il,
-                        text: il
-                    }));
-
+                    if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
+                        jQuery('#shipping_city').append('<option selected value="'+ilce+'">'+ilce+'</option>');
+                    else
+                        jQuery('#shipping_city').append('<option value="'+ilce+'">'+ilce+'</option>');
 
                 });
 
-
             });
+
 
         });
 
