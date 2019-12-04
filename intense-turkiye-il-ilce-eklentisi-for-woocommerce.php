@@ -59,6 +59,8 @@ add_action('admin_init', function(){
 
 });
 
+
+
 add_filter('woocommerce_checkout_fields', 'intense_ilce_override', 9999);
 
 function intense_ilce_override($fields){
@@ -67,32 +69,59 @@ function intense_ilce_override($fields){
         return;
 
     // fatura alanları öncelik sıralaması
-    $ulke_priority = intval($fields['billing']['billing_country']['priority']);
-    $fields['billing']['billing_city']['priority'] = $ulke_priority+2;
-    $fields['billing']['billing_state']['priority'] = $ulke_priority+1;
-    $fields['billing']['billing_address_1']['priority'] = $ulke_priority+3;
-    $fields['billing']['billing_address_2']['priority'] = $ulke_priority+4;
-    $fields['billing']['billing_postcode']['priority'] = $ulke_priority+5;
+    $billing_ulke_priority = intval($fields['billing']['billing_country']['priority']);
+    $fields['billing']['billing_state']['priority'] = $billing_ulke_priority+1;
+    $fields['billing']['billing_city']['priority'] = $billing_ulke_priority+2;
+    $fields['billing']['billing_address_1']['priority'] = $billing_ulke_priority+3;
+    $fields['billing']['billing_address_2']['priority'] = $billing_ulke_priority+4;
+    $fields['billing']['billing_postcode']['priority'] = $billing_ulke_priority+5;
 
     // alıcı adresi alanları öncelik sıralaması
     $ulke_priority = intval($fields['shipping']['shipping_country']['priority']);
-    $fields['shipping']['shipping_city']['priority'] = $ulke_priority+2;
     $fields['shipping']['shipping_state']['priority'] = $ulke_priority+1;
+    $fields['shipping']['shipping_city']['priority'] = $ulke_priority+2;
     $fields['shipping']['shipping_address_1']['priority'] = $ulke_priority+3;
     $fields['shipping']['shipping_address_2']['priority'] = $ulke_priority+4;
     $fields['shipping']['shipping_postcode']['priority'] = $ulke_priority+5;
 
 
-    $fields['billing']['billing_city']['type'] = 'select';
-    $fields['billing']['billing_city']['options'] = array(''=>'Lütfen Seçiniz');
+    $fields['billing']['billing_ilce']['type'] = 'select';
+    $fields['billing']['billing_ilce']['priority'] = $billing_ulke_priority + 2;
+    $fields['billing']['billing_ilce']['label'] = "İlçe / Semt";
+    $fields['billing']['billing_ilce']['required'] = true;
+    $fields['billing']['billing_ilce']['options'] = array(''=>'Lütfen Seçiniz');
 
 
-    $fields['shipping']['shipping_city']['type'] = 'select';
-    $fields['shipping']['shipping_city']['options'] = array(''=>'Lütfen Seçiniz');
+    $fields['shipping']['shipping_ilce']['type'] = 'select';
+    $fields['shipping']['shipping_ilce']['priority'] = $ulke_priority + 2;
+    $fields['shipping']['shipping_ilce']['label'] = "İlçe / Semt";
+    $fields['shipping']['shipping_ilce']['required'] = true;
+    $fields['shipping']['shipping_ilce']['options'] = array(''=>'Lütfen Seçiniz');
+
+
 
     return $fields;
 
 }
+
+
+
+add_action('woocommerce_default_address_fields', function( $address_fields ){
+
+
+
+    $country_priority = $address_fields['country']['priority'];
+    $address_fields['state']['priority'] = $country_priority + 1;
+    $address_fields['city']['priority'] = $country_priority + 2;
+    $address_fields['address_1']['priority'] = $country_priority + 3;
+    $address_fields['address_2']['priority'] = $country_priority + 4;
+
+
+    return $address_fields;
+
+});
+
+
 
 
 add_action('woocommerce_before_checkout_billing_form', 'intense_il_ilce_checkout_bilgiler');
@@ -109,24 +138,6 @@ function intense_il_ilce_checkout_bilgiler(){
 
 }
 
-
-
-
-/** Checkout fieldlerin sıralanması il -> ilçe -> adres **/
-add_filter('woocommerce_default_address_fields', 'intense_il_ilce_siralamasi', 9999999999);
-
-function intense_il_ilce_siralamasi($fields){
-
-    $address_order = intval($fields['address_1']['priority']);
-
-    $fields['city']['priority'] = $address_order-1;
-    $fields['state']['priority'] = $address_order-2;
-
-
-    return $fields;
-
-
-}
 
 
 
@@ -176,8 +187,8 @@ function ilcelerin_listelenmesi(){
 
 
                 // eski verileri temizle
-                jQuery('#billing_city').empty();
-                jQuery('#billing_city').append(new Option('Lütfen Seçiniz', ''));
+                jQuery('#billing_ilce').empty();
+                jQuery('#billing_ilce').append(new Option('Lütfen Seçiniz', ''));
 
                 let billing_il = jQuery('#billing_state').val();
 
@@ -187,9 +198,9 @@ function ilcelerin_listelenmesi(){
 
                     // yeni ilceleri ekle
                     if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
-                        jQuery('#billing_city').append('<option selected value="'+ilce+'">'+ilce+'</option>');
+                        jQuery('#billing_ilce').append('<option selected value="'+ilce+'">'+ilce+'</option>');
                     else
-                        jQuery('#billing_city').append('<option value="'+ilce+'">'+ilce+'</option>');
+                        jQuery('#billing_ilce').append('<option value="'+ilce+'">'+ilce+'</option>');
 
                 });
 
@@ -200,8 +211,8 @@ function ilcelerin_listelenmesi(){
 
 
                 // eski verileri temizle
-                jQuery('#shipping_city').empty();
-                jQuery('#shipping_city').append(new Option('Lütfen Seçiniz', ''));
+                jQuery('#shipping_ilce').empty();
+                jQuery('#shipping_ilce').append(new Option('Lütfen Seçiniz', ''));
 
                 let shipping_il = jQuery('#shipping_state').val();
 
@@ -211,9 +222,9 @@ function ilcelerin_listelenmesi(){
 
                     // yeni ilceleri ekle
                     if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
-                        jQuery('#shipping_city').append('<option selected value="'+ilce+'">'+ilce+'</option>');
+                        jQuery('#shipping_ilce').append('<option selected value="'+ilce+'">'+ilce+'</option>');
                     else
-                        jQuery('#shipping_city').append('<option value="'+ilce+'">'+ilce+'</option>');
+                        jQuery('#shipping_ilce').append('<option value="'+ilce+'">'+ilce+'</option>');
 
                 });
 
