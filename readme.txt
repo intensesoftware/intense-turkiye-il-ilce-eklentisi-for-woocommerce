@@ -2,7 +2,7 @@
 Contributors: intenseyazilim
 Tags: woocommerce, turkiye, turkey, turkish, intense, kargo, il ilçe eklentisi, il ilçe, ilçeler, iller
 Requires at least: 5
-Tested up to: 5.2.2
+Tested up to: 5.2.3
 Stable tag: 1.0.7
 Requires PHP: 5.6
 License: GPL2
