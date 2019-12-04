@@ -20,7 +20,7 @@ add_action('admin_notices', function(){
     if($intense_il_ilce_reklam_gosterim_durumu == 'pasif')
         return false;
 
-   ?>
+    ?>
 
     <div style="margin:15px 0">
         <a href="">
@@ -183,15 +183,33 @@ function ilcelerin_listelenmesi(){
 
                 let mevcut_shipping_ilce = jQuery('input#intense_mevcut_billing_ilce').val();
 
-                jQuery.each(ilceler[billing_il], function(key,ilce){
 
-                    // yeni ilceleri ekle
-                    if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
-                        jQuery('#billing_city').append('<option selected value="'+ilce+'">'+ilce+'</option>');
-                    else
-                        jQuery('#billing_city').append('<option value="'+ilce+'">'+ilce+'</option>');
+                if(ilceler[billing_il].length > 0 ){
 
-                });
+
+                    jQuery.each(ilceler[billing_il], function(key,ilce){
+
+                        // yeni ilceleri ekle
+                        if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
+                            jQuery('#billing_city').append('<option selected value="'+ilce+'">'+ilce+'</option>');
+                        else
+                            jQuery('#billing_city').append('<option value="'+ilce+'">'+ilce+'</option>');
+
+                    });
+
+
+                }else{
+
+
+
+                    jQuery('#billing_city').remove();
+                    jQuery('#billing_city_field .woocommerce-input-wrapper').html('<input type="text" class="input-text" name="billing_city" />');
+
+
+
+                }
+
+
 
             });
 
@@ -207,17 +225,69 @@ function ilcelerin_listelenmesi(){
 
                 let mevcut_shipping_ilce = jQuery('input#intense_mevcut_shipping_ilce').val();
 
-                jQuery.each(ilceler[shipping_il], function(key,ilce){
 
-                    // yeni ilceleri ekle
-                    if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
-                        jQuery('#shipping_city').append('<option selected value="'+ilce+'">'+ilce+'</option>');
-                    else
-                        jQuery('#shipping_city').append('<option value="'+ilce+'">'+ilce+'</option>');
+                if( ilceler[shipping_il].length > 0 ){
 
-                });
+
+                    jQuery.each(ilceler[shipping_il], function(key,ilce){
+
+                        // yeni ilceleri ekle
+                        if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
+                            jQuery('#shipping_city').append('<option selected value="'+ilce+'">'+ilce+'</option>');
+                        else
+                            jQuery('#shipping_city').append('<option value="'+ilce+'">'+ilce+'</option>');
+
+                    });
+
+
+                }else{
+
+
+
+                    jQuery('#shipping_city').remove();
+                    jQuery('#shipping_city_field .woocommerce-input-wrapper').html('<input type="text" class="input-text" name="shipping_city" />');
+
+
+
+                }
+
 
             });
+
+
+
+            jQuery('#billing_country').on('change', function(e){
+
+
+                if(this.value!='TR'){
+
+                    jQuery('#billing_city').remove();
+
+                    jQuery('#billing_city_field .woocommerce-input-wrapper').html('<input type="text" class="input-text" name="billing_city" />');
+
+                }
+
+
+            });
+
+
+
+
+            jQuery('#shipping_country').on('change', function(e){
+
+
+                if(this.value!='TR'){
+
+                    jQuery('#shipping_city').remove();
+
+                    jQuery('#shipping_city_field .woocommerce-input-wrapper').html('<input type="text" class="input-text" name="shipping_city" />');
+
+                }
+
+
+            });
+
+
 
 
         });
