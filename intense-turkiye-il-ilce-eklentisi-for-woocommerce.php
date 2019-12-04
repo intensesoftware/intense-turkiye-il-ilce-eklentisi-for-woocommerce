@@ -88,14 +88,14 @@ function intense_ilce_override($fields){
     $fields['billing']['billing_ilce']['type'] = 'select';
     $fields['billing']['billing_ilce']['priority'] = $billing_ulke_priority + 2;
     $fields['billing']['billing_ilce']['label'] = "İlçe / Semt";
-    $fields['billing']['billing_ilce']['required'] = true;
+    $fields['billing']['billing_ilce']['required'] = false;
     $fields['billing']['billing_ilce']['options'] = array(''=>'Lütfen Seçiniz');
 
 
     $fields['shipping']['shipping_ilce']['type'] = 'select';
     $fields['shipping']['shipping_ilce']['priority'] = $ulke_priority + 2;
     $fields['shipping']['shipping_ilce']['label'] = "İlçe / Semt";
-    $fields['shipping']['shipping_ilce']['required'] = true;
+    $fields['shipping']['shipping_ilce']['required'] = false;
     $fields['shipping']['shipping_ilce']['options'] = array(''=>'Lütfen Seçiniz');
 
 
@@ -180,10 +180,45 @@ function ilcelerin_listelenmesi(){
 
     <script>
 
-        jQuery('document').ready(function(){
+        jQuery('document').ready(function($){
 
 
-            jQuery('#billing_state').on('change', function(){
+
+            // ilk yüklenme
+
+            var billing_country = $('#billing_country').val();
+
+            if(billing_country == 'TR'){
+
+                gizle('#billing_city_field');
+                goster('#billing_ilce_field');
+
+            }else{
+
+
+                goster('#billing_city_field');
+                gizle('#billing_ilce_field');
+
+            }
+
+            var shipping_country = $('#shipping_country').val();
+
+            if(shipping_country == 'TR'){
+
+                gizle('#shipping_city_field');
+                goster('#shipping_ilce_field');
+
+            }else{
+
+
+                goster('#shipping_city_field');
+                gizle('#shipping_ilce_field');
+
+            }
+
+
+
+            jQuery(document).on('change', '#billing_state', function(){
 
 
                 // eski verileri temizle
@@ -192,22 +227,48 @@ function ilcelerin_listelenmesi(){
 
                 let billing_il = jQuery('#billing_state').val();
 
-                let mevcut_shipping_ilce = jQuery('input#intense_mevcut_billing_ilce').val();
+                let mevcut_billing_ilce = jQuery('input#intense_mevcut_billing_ilce').val();
 
-                jQuery.each(ilceler[billing_il], function(key,ilce){
+                if( Array.isArray(ilceler[billing_il]) ){
 
-                    // yeni ilceleri ekle
-                    if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
-                        jQuery('#billing_ilce').append('<option selected value="'+ilce+'">'+ilce+'</option>');
-                    else
-                        jQuery('#billing_ilce').append('<option value="'+ilce+'">'+ilce+'</option>');
+                    var bulunan_ilce_sayisi = ilceler[billing_il].length;
 
-                });
+                    if( bulunan_ilce_sayisi > 0 ){
+
+                        jQuery.each(ilceler[billing_il], function(key,ilce){
+
+                            // yeni ilceleri ekle
+                            if(jQuery.trim(ilce)==jQuery.trim(mevcut_billing_ilce))
+                                jQuery('#billing_ilce').append('<option selected value="'+ilce+'">'+ilce+'</option>');
+                            else
+                                jQuery('#billing_ilce').append('<option value="'+ilce+'">'+ilce+'</option>');
+
+                        });
+
+                        gizle('#billing_city_field');
+                        goster('#billing_ilce_field');
+
+
+                    }else {
+
+                        goster('#billing_city_field');
+                        gizle('#billing_ilce_field');
+
+                    }
+
+
+                }else{
+
+                    goster('#billing_city_field');
+                    gizle('#billing_ilce_field');
+
+                }
+
 
             });
 
 
-            jQuery('#shipping_state').on('change', function(){
+            jQuery(document).on('change', '#shipping_state', function(){
 
 
                 // eski verileri temizle
@@ -218,17 +279,126 @@ function ilcelerin_listelenmesi(){
 
                 let mevcut_shipping_ilce = jQuery('input#intense_mevcut_shipping_ilce').val();
 
-                jQuery.each(ilceler[shipping_il], function(key,ilce){
+                if( Array.isArray(ilceler[shipping_il]) ){
 
-                    // yeni ilceleri ekle
-                    if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
-                        jQuery('#shipping_ilce').append('<option selected value="'+ilce+'">'+ilce+'</option>');
-                    else
-                        jQuery('#shipping_ilce').append('<option value="'+ilce+'">'+ilce+'</option>');
+                    var bulunan_ilce_sayisi = ilceler[shipping_il].length;
+
+                    if( bulunan_ilce_sayisi > 0 ){
+
+                        jQuery.each(ilceler[shipping_il], function(key,ilce){
+
+                            // yeni ilceleri ekle
+                            if(jQuery.trim(ilce)==jQuery.trim(mevcut_shipping_ilce))
+                                jQuery('#shipping_ilce').append('<option selected value="'+ilce+'">'+ilce+'</option>');
+                            else
+                                jQuery('#shipping_ilce').append('<option value="'+ilce+'">'+ilce+'</option>');
+
+                        });
+
+                        gizle('#shipping_city_field');
+                        goster('#shipping_ilce_field');
+
+
+                    }else {
+
+                        goster('#shipping_city_field');
+                        gizle('#shipping_ilce_field');
+
+                    }
+
+
+                }else{
+
+                    goster('#shipping_city_field');
+                    gizle('#shipping_ilce_field');
+
+                }
+
+
+            });
+
+
+            jQuery('#billing_ilce').on('change', function(){
+
+                $('#billing_city').val(this.value);
+                jQuery('body').trigger('update_checkout');
+
+            });
+
+            jQuery('#shipping_ilce').on('change', function(){
+
+                $('#shipping_city').val(this.value);
+                jQuery('body').trigger('update_checkout');
+
+            });
+
+
+
+            jQuery('#billing_country').on('change', function(){
+
+                var billing_country = this.value;
+
+                if(billing_country == 'TR'){
+
+                    gizle('#billing_city_field');
+                    goster('#billing_ilce_field');
+
+                }else{
+
+                    goster('#billing_city_field');
+                    gizle('#billing_ilce_field');
+
+                }
+
+            });
+
+
+            jQuery('#shipping_country').on('change', function(){
+
+                var shipping_country = this.value;
+
+                if(shipping_country == 'TR'){
+
+                    gizle('#shipping_city_field');
+                    goster('#shipping_ilce_field');
+
+                }else{
+
+
+                    goster('#shipping_city_field');
+                    gizle('#shipping_ilce_field');
+
+                }
+
+            });
+
+
+            function goster( selector = '' ){
+
+                $( selector ).show( 200, function(){
+
+                    $( this ).addClass("validate-required");
 
                 });
 
-            });
+                $(selector).removeClass("woocommerce-validated");
+                $(selector).removeClass("woocommerce-invalid woocommerce-invalid-required-field");
+
+            }
+
+
+            function gizle( selector = '' ){
+
+                $( selector ).hide( 200, function(){
+
+                    $( this ).removeClass("validate-required");
+
+                });
+
+                $(selector).removeClass("woocommerce-validated");
+                $(selector).removeClass("woocommerce-invalid woocommerce-invalid-required-field");
+
+            }
 
 
         });
