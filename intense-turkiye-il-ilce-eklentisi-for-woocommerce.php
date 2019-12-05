@@ -19,4 +19,6 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
     include_once("fonksiyonlar/in-class-il-ilce-uyarilar.php");
 
+    include_once("fonksiyonlar/in-class-il-ilce-checkout-js.php");
+
 }

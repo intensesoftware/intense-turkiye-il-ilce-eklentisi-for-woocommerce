@@ -51,6 +51,20 @@ Class In_Class_Il_Ilce_Checkout_JS {
 
             jQuery('document').ready(function($){
 
+                // WC ilçe alanı label içeriğinin Intense ilçe alanına aktarımı
+                $('#billing_ilce_field label').html(
+
+                    $('#billing_city_field label').html()
+
+                );
+
+
+                // WC ilçe alanı label içeriğinin Intense ilçe alanına aktarımı
+                $('#shipping_ilce_field label').html(
+
+                    $('#shipping_city_field label').html()
+
+                );
 
 
                 // ilk yüklenme
@@ -281,3 +295,6 @@ Class In_Class_Il_Ilce_Checkout_JS {
 
 
 }
+
+
+new In_Class_Il_Ilce_Checkout_JS();
