@@ -3,11 +3,12 @@
 /*
 Plugin Name: Intense Türkiye İl İlçe Eklentisi For WooCommerce
 Description: WooCommerce ödeme sayfası için Türkiye'de yer alan tüm il ve ilçelerin gösterilmesini sağlar.
-Version: 1.0.7
+Version: 1.1.0
 Author: Intense Yazılım
 Author URI: http://intense.com.tr
 License: GPL2
 */
+
 
 if ( ! defined( 'ABSPATH' ) ){
     exit;

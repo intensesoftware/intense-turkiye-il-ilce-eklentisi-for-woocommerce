@@ -6,6 +6,7 @@ Class In_Class_Il_Ilce_Uyarilar {
     {
 
         add_action('admin_notices', array( $this, 'uyarilar' ), 10, 1);
+
         add_action('admin_init', array( $this, 'reklam_gosterim_ayari' ));
 
     }
