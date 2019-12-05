@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ){
+    exit;
+}
+
 Class In_Class_Il_Ilce_Checkout_JS {
 
 
