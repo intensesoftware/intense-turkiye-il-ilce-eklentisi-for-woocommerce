@@ -15,6 +15,13 @@ Class In_Class_Il_Ilce_Uyarilar {
 
     function uyarilar(){
 
+        $screen = get_current_screen();
+
+        // sadece dashboardda görünsün
+
+        if( $screen->parent_base != 'index' )
+            return false;
+
         $intense_il_ilce_reklam_gosterim_durumu = get_option( '_intense_il_ilce_reklam_gosterim_durumu' );
 
         if($intense_il_ilce_reklam_gosterim_durumu == 'pasif')
@@ -23,13 +30,13 @@ Class In_Class_Il_Ilce_Uyarilar {
         ?>
 
         <div style="margin:15px 0">
-            <a href="">
+            <a href="https://market.intense.com.tr" target="_blank">
 
-                <img style="width:1200px" src="https://market.intense.com.tr/wp-content/uploads/2019/12/reklam.png" />
+                <img style="width:1000px" src="https://market.intense.com.tr/wp-content/uploads/2019/12/reklam.png" />
 
             </a>
             <p>
-                <a href="<?php echo get_admin_url(); ?>/index.php?intense-ilce-ilce-reklam-gosterimi-kapali=true">Bu reklamı kalıcı olarak gizle</a> Bu reklamı Intense İl İlçe eklentisi kullanımınız sebebiyle görmektesiniz.
+                Bu reklamı Intense İl İlçe eklentimizi kullanımınız sebebiyle görüntülemektesiniz. <a href="<?php echo get_admin_url(); ?>/index.php?intense-ilce-ilce-reklam-gosterimi-kapali=true">Dilerseniz buradan reklamı kalıcı olarak gizleyebilrsiniz.</a>
             </p>
 
         </div>
