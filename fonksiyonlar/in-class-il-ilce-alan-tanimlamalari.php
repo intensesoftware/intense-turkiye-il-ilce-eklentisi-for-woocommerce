@@ -152,7 +152,7 @@ Class In_Class_Il_Ilce_Alan_Tanimlamalari {
             $fields['shipping']['shipping_postcode']['priority'] = $ulke_priority+5;
 
 
-        $fields['billing']['billing_ilce']['class'][0] = 'form-row-wide';
+        $fields['billing']['billing_ilce']['class'][0] = $fields['billing']['billing_city']['class'][0];
         $fields['billing']['billing_ilce']['type'] = 'select';
         $fields['billing']['billing_ilce']['priority'] = $billing_ulke_priority + 2;
         $fields['billing']['billing_ilce']['label'] = "İlçe / Semt";
@@ -160,7 +160,7 @@ Class In_Class_Il_Ilce_Alan_Tanimlamalari {
         $fields['billing']['billing_ilce']['options'] = array(''=>'Lütfen Seçiniz');
 
 
-        $fields['shipping']['shipping_ilce']['class'][0] = 'form-row-wide';
+        $fields['shipping']['shipping_ilce']['class'][0] = $fields['shipping']['shipping_city']['class'][0];
         $fields['shipping']['shipping_ilce']['type'] = 'select';
         $fields['shipping']['shipping_ilce']['priority'] = $ulke_priority + 2;
         $fields['shipping']['shipping_ilce']['label'] = "İlçe / Semt";
