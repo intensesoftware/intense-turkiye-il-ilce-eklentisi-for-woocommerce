@@ -119,17 +119,29 @@ Class In_Class_Il_Ilce_Alan_Tanimlamalari {
         $billing_ulke_priority = intval($fields['billing']['billing_country']['priority']);
         $fields['billing']['billing_state']['priority'] = $billing_ulke_priority+1;
         $fields['billing']['billing_city']['priority'] = $billing_ulke_priority+2;
-        $fields['billing']['billing_address_1']['priority'] = $billing_ulke_priority+3;
-        $fields['billing']['billing_address_2']['priority'] = $billing_ulke_priority+4;
-        $fields['billing']['billing_postcode']['priority'] = $billing_ulke_priority+5;
+
+        if(array_key_exists('billing_address_1', $fields['billing']))
+            $fields['billing']['billing_address_1']['priority'] = $billing_ulke_priority+3;
+
+        if(array_key_exists('billing_address_2', $fields['billing']))
+            $fields['billing']['billing_address_2']['priority'] = $billing_ulke_priority+4;
+
+        if(array_key_exists('billing_postcode', $fields['billing']))
+            $fields['billing']['billing_postcode']['priority'] = $billing_ulke_priority+5;
 
         // alıcı adresi alanları öncelik sıralaması
         $ulke_priority = intval($fields['shipping']['shipping_country']['priority']);
         $fields['shipping']['shipping_state']['priority'] = $ulke_priority+1;
         $fields['shipping']['shipping_city']['priority'] = $ulke_priority+2;
-        $fields['shipping']['shipping_address_1']['priority'] = $ulke_priority+3;
-        $fields['shipping']['shipping_address_2']['priority'] = $ulke_priority+4;
-        $fields['shipping']['shipping_postcode']['priority'] = $ulke_priority+5;
+
+        if(array_key_exists('shipping_address_1', $fields['shipping']))
+            $fields['shipping']['shipping_address_1']['priority'] = $ulke_priority+3;
+
+        if(array_key_exists('shipping_address_2', $fields['shipping']))
+            $fields['shipping']['shipping_address_2']['priority'] = $ulke_priority+4;
+
+        if(array_key_exists('shipping_postcode', $fields['shipping']))
+            $fields['shipping']['shipping_postcode']['priority'] = $ulke_priority+5;
 
 
         $fields['billing']['billing_ilce']['class'][0] = 'form-row-wide';
