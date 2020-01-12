@@ -3,7 +3,7 @@ Contributors: intenseyazilim
 Tags: woocommerce, Turkiye, Turkey, Turkish, Intense, intense, kargo, il ilçe eklentisi, il ilçe, ilçeler, iller, woocommerce il ilçe, woocommerce ilçe seçimi, woocommerce ilçe
 Requires at least: 5
 Tested up to: 5.3.0
-Stable tag: 1.1.3
+Stable tag: 1.1.5
 Requires PHP: 5.6
 License: GPL2
 License URI: http://intense.com.tr
@@ -14,6 +14,8 @@ WooCommerce mağazanız ödeme ekranına seçilebilir ilçe desteği ekler. Öde
 Eklentiyi etkinleştirdikten sonra, ödeme ekranında 'ilçe' alanının dinamik ve seçilebilir olduğunu göreceksiniz.
 
 == Changelog ==
+= Version 1.1.5 - 12/01/2019 =
+Adres1, Adres2, İl, İlçe ve PK alanları pasif olduğunda ödeme sayfasında gösterilmemesi sağlandı + İlçe alanının classlarına WooCommerce ilçe classları atandı.
 
 = Version 1.1.3 - 05/12/2019 =
 İlçe alanının tam genişlik olması sağlandı.
