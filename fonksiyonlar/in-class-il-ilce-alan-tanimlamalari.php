@@ -19,6 +19,32 @@ Class In_Class_Il_Ilce_Alan_Tanimlamalari {
 
         add_action('woocommerce_before_checkout_billing_form', array( $this, 'secili_ilce_bilgileri' ) );
 
+        add_action('wp_footer', array( $this, 'checkout_inline_js' ));
+
+    }
+
+    function checkout_inline_js(){
+
+        if(!is_checkout())
+            return;
+
+        ?>
+
+        <script>
+
+            jQuery(document).ready(function($){
+
+
+                $('#billing_ilce').select2();
+
+
+            });
+
+        </script>
+
+        <?php
+
+
     }
 
 
