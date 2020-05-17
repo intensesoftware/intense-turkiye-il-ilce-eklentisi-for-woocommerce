@@ -29,7 +29,9 @@ Class In_Class_Il_Ilce_Checkout_JS {
 
 
 
-        $districts = include INTENSE_IL_ILCE_PLUGIN_PATH . 'data/districts.php';
+        $raw_districts = include INTENSE_IL_ILCE_PLUGIN_PATH . 'data/districts.php';
+
+	    $districts = apply_filters('woocommerce_TR_districts', $raw_districts);
 
 
         ?>
