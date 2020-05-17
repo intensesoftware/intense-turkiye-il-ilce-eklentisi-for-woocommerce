@@ -16,6 +16,8 @@ if ( ! defined( 'ABSPATH' ) ){
 
 if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 
+	define('INTENSE_IL_ILCE_PLUGIN_PATH', plugin_dir_path( __FILE__ ));
+
     include_once("fonksiyonlar/in-class-il-ilce-alan-tanimlamalari.php");
 
     include_once("fonksiyonlar/in-class-il-ilce-uyarilar.php");
