@@ -7,6 +7,9 @@ Version: 1.2.0
 Author: Intense Yazılım
 Author URI: http://intense.com.tr
 License: GPL2
+
+WC tested up to: 4.1.0
+
 */
 
 
