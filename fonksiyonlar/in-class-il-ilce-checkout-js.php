@@ -28,10 +28,8 @@ Class In_Class_Il_Ilce_Checkout_JS {
             return;
 
 
-
-        $raw_districts = include INTENSE_IL_ILCE_PLUGIN_PATH . 'data/districts.php';
-
-	    $districts = apply_filters('woocommerce_TR_districts', $raw_districts);
+        // districts
+	    $districts = In_Class_Il_Ilce_Districts::get_TR_districts();
 
 
         ?>
