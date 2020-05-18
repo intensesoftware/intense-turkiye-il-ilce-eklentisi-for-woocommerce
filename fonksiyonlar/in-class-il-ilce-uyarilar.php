@@ -34,9 +34,9 @@ Class In_Class_Il_Ilce_Uyarilar {
         ?>
 
         <div style="margin:15px 0">
-            <a href="https://market.intense.com.tr/?utm_source=intense-il-ilce-plugin-wordpress-market&utm_medium=banner&utm_campaign=general_products" target="_blank">
+            <a href="https://intense.com.tr/?utm_source=intense-il-ilce-plugin-wordpress-market&utm_medium=banner&utm_campaign=general_products" target="_blank">
 
-                <img style="width:1000px" src="https://market.intense.com.tr/wp-content/uploads/2019/12/reklam.png" />
+                <img style="width:1000px" src="https://intense.com.tr/wp-content/uploads/2019/12/reklam.png" />
 
             </a>
             <p>
