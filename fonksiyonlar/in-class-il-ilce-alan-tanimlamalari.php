@@ -36,6 +36,7 @@ Class In_Class_Il_Ilce_Alan_Tanimlamalari {
 
 
                 $('#billing_ilce').select2();
+                $('#shipping_ilce').select2();
 
 
             });
