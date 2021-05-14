@@ -12,7 +12,7 @@ Author: Intense Yazılım
 Author URI: http://intense.com.tr
 License: GPL2
 
-WC tested up to: 4.1.0
+WC tested up to: 5.3.0
 
 */
 
