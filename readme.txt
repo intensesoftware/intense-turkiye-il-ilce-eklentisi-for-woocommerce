@@ -3,7 +3,7 @@ Contributors: intenseyazilim, mskapusuz
 Tags: woocommerce, Turkiye, Turkey, Turkish, Intense, intense, kargo, il ilçe eklentisi, il ilçe, ilçeler, iller, woocommerce il ilçe, woocommerce ilçe seçimi, woocommerce ilçe
 Requires at least: 5
 Tested up to: 5.7.2
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 Requires PHP: 7.0
 License: GPL2
 License URI: http://intense.com.tr
@@ -11,10 +11,7 @@ Donate link: http://intense.com.tr/
 
 WooCommerce mağazanız ödeme ekranına seçilebilir ilçe desteği ekler. Ödeme alan sıralamalarını 'Ülke -> İl -> İlçe -> Adres -> PK' formatında düzenler. Bu uygulama WooCommerce veritabanınızda hiçbir değişiklik yapmayarak tamamen WooCommerce ile uyumlu olarak geliştirilmiştir.
 
-* Eklentiyle ilgili PRO versiyonlar çok yakında yayımlanacaktır. ( mahalle seçebilme özelliği, mahalleye göre kurye bedeli )
-
-* Öneri ve bildirimleriniz için bize info@intense.com.tr e-posta adresimiz ile ulaşabilirsiniz.
-
+* DİKKAT: Bu eklenti emekli edilmiştir, artık bu eklenti için destek verilmemektedir, bu eklentinin çok daha gelişmiş versiyonu Hezarfen eklentisi altında yayımlanmıştır. Hezarfen ile ilçe ve mahalle özellikleri ücretsiz olarak ödeme ekranınıza eklenmektedir, ayrıca vergi alanları gibi ek özellikler bulunmaktadır. Önerimiz, bu eklentiyi pasif ederek Hezarfen eklentisini kurmanızdır. https://wordpress.org/plugins/hezarfen-for-woocommerce/ Sorularınızı Hezarfen eklentimizin wordpress.org forum sayfasından sorabilirsiniz.
 
 = DİĞER EKLENTİLERİMİZ =
 Intense Yazılım olarak WooCommerce Türkiye e-ticaret kullanıcıları için eklentiler geliştiriyoruz.
@@ -31,6 +28,8 @@ Intense Yazılım olarak WooCommerce Türkiye e-ticaret kullanıcıları için e
 Eklentiyi etkinleştirdikten sonra, ödeme ekranında 'ilçe' alanının dinamik ve seçilebilir olduğunu göreceksiniz.
 
 == Changelog ==
+= Versiyon 1.2.4 - 24/03/2022 =
+* Readme.txt güncellendi.
 
 = Version 1.2.2 - 18/05/2020 =
 Altyapısal iyileştirme ( In_Class_Il_Ilce_Districts::get_TR_districts(); metodu eklenmesi )
