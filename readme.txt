@@ -3,7 +3,7 @@ Contributors: intenseyazilim
 Tags: woocommerce, Turkiye, Turkey, Turkish, Intense, intense, kargo, il ilçe eklentisi, il ilçe, ilçeler, iller, woocommerce il ilçe, woocommerce ilçe seçimi, woocommerce ilçe
 Requires at least: 5
 Tested up to: 5.7.2
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 Requires PHP: 7.0
 License: GPL2
 License URI: http://intense.com.tr
@@ -29,6 +29,9 @@ Intense Yazılım olarak WooCommerce Türkiye e-ticaret kullanıcıları için e
 Eklentiyi etkinleştirdikten sonra, ödeme ekranında 'ilçe' alanının dinamik ve seçilebilir olduğunu göreceksiniz.
 
 == Changelog ==
+= Versiyon 1.2.6 - 22/04/2022 =
+* Readme.txt ve reklam URL güncellendi.
+
 = Versiyon 1.2.5 - 24/03/2022 =
 * Readme.txt güncellendi.
 
