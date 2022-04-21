@@ -1,5 +1,5 @@
 === Intense Türkiye İl İlçe Eklentisi For WooCommerce ===
-Contributors: intenseyazilim, mskapusuz
+Contributors: intenseyazilim
 Tags: woocommerce, Turkiye, Turkey, Turkish, Intense, intense, kargo, il ilçe eklentisi, il ilçe, ilçeler, iller, woocommerce il ilçe, woocommerce ilçe seçimi, woocommerce ilçe
 Requires at least: 5
 Tested up to: 5.7.2
@@ -22,7 +22,7 @@ Intense Yazılım olarak WooCommerce Türkiye e-ticaret kullanıcıları için e
 * PandaSMS - WooCommerce ile SMS Gönderimi
 * Fatura Eklentisi
 
-** Detaylı bilgi için https://intense.com.tr - (WhatsApp: 0532 173 31 91) - info@intense.com.tr
+** Detaylı bilgi için https://intense.com.tr - info@intense.com.tr
 
 
 == Installation ==

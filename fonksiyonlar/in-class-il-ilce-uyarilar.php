@@ -34,10 +34,8 @@ Class In_Class_Il_Ilce_Uyarilar {
         ?>
 
         <div style="margin:15px 0">
-            <a href="https://intense.com.tr/?utm_source=intense-il-ilce-plugin-wordpress-market&utm_medium=banner&utm_campaign=general_products" target="_blank">
-
+            <a href="https://wordpress.org/plugins/hezarfen-for-woocommerce" target="_blank">
                 <img style="width:1000px" src="https://intense.com.tr/wp-content/uploads/2019/12/reklam.png" />
-
             </a>
             <p>
                 Bu reklamı Intense İl İlçe eklentimizi kullanımınız sebebiyle görüntülemektesiniz. <a href="<?php echo get_admin_url(); ?>/index.php?intense-ilce-ilce-reklam-gosterimi-kapali=true">Dilerseniz buradan reklamı kalıcı olarak gizleyebilrsiniz.</a>
