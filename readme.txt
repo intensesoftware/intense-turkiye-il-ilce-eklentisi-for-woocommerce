@@ -1,34 +1,22 @@
 === Intense Türkiye İl İlçe Eklentisi For WooCommerce ===
 Contributors: intenseyazilim
-Tags: woocommerce, Turkiye, Turkey, Turkish, Intense, intense, kargo, il ilçe eklentisi, il ilçe, ilçeler, iller, woocommerce il ilçe, woocommerce ilçe seçimi, woocommerce ilçe
+Tags:
 Requires at least: 5
 Tested up to: 5.7.2
-Stable tag: 1.2.6
+Stable tag: 1.3.0
 Requires PHP: 7.0
 License: GPL2
 License URI: http://intense.com.tr
 Donate link: http://intense.com.tr/
 
-!!! DİKKAT: Bu eklenti emekli edilmiştir, artık bu eklenti için destek verilmemektedir, bu eklentinin çok daha gelişmiş versiyonu Hezarfen eklentisi altında yayımlanmıştır. Hezarfen ile ilçe ve mahalle özellikleri ücretsiz olarak ödeme ekranınıza eklenmektedir, ayrıca vergi alanları gibi ek özellikler bulunmaktadır. Önerimiz, bu eklentiyi pasif ederek Hezarfen eklentisini kurmanızdır. https://wordpress.org/plugins/hezarfen-for-woocommerce/ Sorularınızı Hezarfen eklentimizin wordpress.org forum sayfasından sorabilirsiniz.
+!!! DİKKAT: Bu eklenti emekli edilmiştir, artık bu eklenti için destek verilmemektedir, bu eklentinin çok daha gelişmiş versiyonu Hezarfen eklentisi altında yayımlanmıştır. Hezarfen ile ilçe ve mahalle özellikleri ücretsiz olarak ödeme ekranınıza eklenmektedir, ayrıca vergi alanları gibi ek özellikler bulunmaktadır. Eğer bu eklentiyi kullanıyorsanız, bu eklentiyi pasif ederek Hezarfen eklentisini yükleyiniz.
 
-WooCommerce mağazanız ödeme ekranına seçilebilir ilçe desteği ekler. Ödeme alan sıralamalarını 'Ülke -> İl -> İlçe -> Adres -> PK' formatında düzenler. Bu uygulama WooCommerce veritabanınızda hiçbir değişiklik yapmayarak tamamen WooCommerce ile uyumlu olarak geliştirilmiştir.
-
-
-= DİĞER EKLENTİLERİMİZ =
-Intense Yazılım olarak WooCommerce Türkiye e-ticaret kullanıcıları için eklentiler geliştiriyoruz.
-* Kargo Takip Eklentisi
-* Kargo Entegrasyonları
-* Mesafeli Satış Sözleşmeleri
-* PandaSMS - WooCommerce ile SMS Gönderimi
-* Fatura Eklentisi
-
-** Detaylı bilgi için https://intense.com.tr - info@intense.com.tr
-
-
-== Installation ==
-Eklentiyi etkinleştirdikten sonra, ödeme ekranında 'ilçe' alanının dinamik ve seçilebilir olduğunu göreceksiniz.
+[https://wordpress.org/plugins/hezarfen-for-woocommerce/](https://wordpress.org/plugins/hezarfen-for-woocommerce/) Sorularınızı Hezarfen eklentimizin wordpress.org forum sayfasından sorabilirsiniz.
 
 == Changelog ==
+= Versiyon 1.3.0 - 09/09/2022 =
+* Emeklilik uyarısı
+
 = Versiyon 1.2.6 - 22/04/2022 =
 * Readme.txt ve reklam URL güncellendi.
 

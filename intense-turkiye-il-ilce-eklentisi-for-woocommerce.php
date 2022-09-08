@@ -6,8 +6,8 @@ Contributors: intenseyazilim
 Donate link: http://intense.com.tr/
 
 Plugin Name: Intense Türkiye İl İlçe Eklentisi For WooCommerce
-Description: Dikkat: Bu eklenti emekli edilmiştir, bu eklentinin yerine Hezarfen isimli eklentimizi öneririz, Hezarfen eklentimiz; ücretsiz olarak ilçe ve mahalle desteği sunar. https://wordpress.org/plugins/hezarfen-for-woocommerce/
-Version: 1.2.6
+Description: !!! Dikkat: Bu eklenti emekli edilmiştir, bu eklentinin yerine Hezarfen isimli eklentimizi öneririz, Hezarfen eklentimiz; ücretsiz olarak ilçe ve mahalle desteği sunar. https://wordpress.org/plugins/hezarfen-for-woocommerce/
+Version: 1.3.0
 Author: Intense Yazılım
 Author URI: http://intense.com.tr
 License: GPL2
