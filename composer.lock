@@ -1,0 +1,61 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "74656b5947b3f39fde84a8181c8d0da6",
+    "packages": [
+        {
+            "name": "afragen/wp-dismiss-notice",
+            "version": "0.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/afragen/wp-dismiss-notice.git",
+                "reference": "d6511c4eea243449dc6d15efcc807aa8ab0d3a91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/afragen/wp-dismiss-notice/zipball/d6511c4eea243449dc6d15efcc807aa8ab0d3a91",
+                "reference": "d6511c4eea243449dc6d15efcc807aa8ab0d3a91",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "wp-dismiss-notice.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andy Fragen",
+                    "email": "andy@thefragens.com",
+                    "homepage": "https://thefragens.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library for time dismissible WordPress admin notices.",
+            "support": {
+                "issues": "https://github.com/afragen/wp-dismiss-notice/issues",
+                "source": "https://github.com/afragen/wp-dismiss-notice"
+            },
+            "time": "2022-07-25T15:44:19+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

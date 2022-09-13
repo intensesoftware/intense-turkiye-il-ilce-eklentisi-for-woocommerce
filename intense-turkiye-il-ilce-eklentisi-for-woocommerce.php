@@ -21,7 +21,10 @@ if ( ! defined( 'ABSPATH' ) ){
     exit;
 }
 
+
 if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+
+    require __DIR__ . '/vendor/autoload.php';
 
 	define('INTENSE_IL_ILCE_PLUGIN_PATH', plugin_dir_path( __FILE__ ));
 

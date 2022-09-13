@@ -1,0 +1,5 @@
+{
+    "require": {
+        "afragen/wp-dismiss-notice": "^0.2.6"
+    }
+}
