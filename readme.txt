@@ -3,7 +3,7 @@ Contributors: intenseyazilim
 Tags:
 Requires at least: 5
 Tested up to: 5.7.2
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 Requires PHP: 7.0
 License: GPL2
 License URI: http://intense.com.tr
@@ -14,6 +14,11 @@ Donate link: http://intense.com.tr/
 [https://wordpress.org/plugins/hezarfen-for-woocommerce/](https://wordpress.org/plugins/hezarfen-for-woocommerce/) Sorularınızı Hezarfen eklentimizin wordpress.org forum sayfasından sorabilirsiniz.
 
 == Changelog ==
+= Versiyon 1.4.0 - 13/09/2022 =
+* Hata giderme: Emeklilik uyarısındaki kapatılmamıi HTML tag hatası (uyarı dışında bir yere tıklandığında Hezarfen sayfasına gidilmesi sorunu) giderildi. (Yaşanan aksaklık için özür dileriz.)
+* Emeklilik uyarısının 7 gün süreyle gizlenebilmesi sağlandı.
+* Emeklilik uyarısıın sadece dashboard ve eklentiler ekranlarında çıkması sağlandı.
+
 = Versiyon 1.3.0 - 09/09/2022 =
 * Emeklilik uyarısı
 
