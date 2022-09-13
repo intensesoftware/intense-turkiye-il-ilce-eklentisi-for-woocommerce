@@ -24,16 +24,16 @@ Class In_Class_Il_Ilce_Uyarilar {
         ?>
         <div class="notice notice-error">
             <p>
-                <b style="color:red; font-size:14px">Önemli not: "Intense İl İlçe eklenti"'si emekli edilmiştir, yakın zamanda kalıcı olarak kaldırılması planlanmaktadır.</a></b>
+                <b style="color:red; font-size:14px">Önemli not: "Intense İl İlçe eklenti"'si emekli edilmiştir, artık bu eklenti için güncelleme ve destek verilmemektedir.</a></b>
             </p>
             <p>
-                <span style="text-decoration:underline; font-weight:bold">Lütfen "Intense İl İlçe eklentisi"ni kaldırınız ve bunun yerine <a href="<?php echo $this->hezarfen_install_url(); ?>">"Hezarfen for WooCommerce"</a> eklentisini yükleyiniz</span> bu sayede ücretsiz olarak ilçelere ek olarak mahalleleri de ödeme ekranınızda gösterebilirsiniz. Hezarfen eklentisi, WooCommerce'i Türkiye için daha kullanılabilir hale getirmeyi amaçlar.
+                <span style="text-decoration:underline; font-weight:bold">Ödeme ekranında ilçeleri göstermeye devam etmek istiyorsanız: "Intense İl İlçe eklentisi"ni kaldırıp ve bunun yerine <a href="<?php echo $this->hezarfen_install_url(); ?>">"Hezarfen for WooCommerce"</a> eklentisini yükleyiniz</span> bu sayede ücretsiz olarak ilçelere ek olarak <strong>mahalleleri de</strong> ödeme ekranınızda gösterebilirsiniz. Hezarfen eklentisi, WooCommerce'i Türkiye için daha kullanılabilir hale getirmeyi amaçlar.
             </p>
             <p>
                 <a class="button" href="<?php echo $this->hezarfen_install_url(); ?>">Hezarfen'i buraya tıklayarak yükleyebilirsiniz.</a>
             </p>
             <p>
-            Hezarfen for WooCommerce, Intense ekibi tarafından geliştirilmektedir.</b> <a target="_blank" href="https://wordpress.org/plugins/hezarfen-for-woocommerce/">Hezarfen ile ilgili soru ve geri bildirimlerinizi, WP sayfasi->Support(Destek) alanından iletebilirsiniz.
+            Hezarfen for WooCommerce, Intense ekibi tarafından geliştirilmektedir.</b> <a target="_blank" href="https://wordpress.org/plugins/hezarfen-for-woocommerce/">Hezarfen ile ilgili soru ve geri bildirimlerinizi, WP sayfasi->Support(Destek) alanından iletebilirsiniz.</a>
             </p>
         </div>
         <?php
